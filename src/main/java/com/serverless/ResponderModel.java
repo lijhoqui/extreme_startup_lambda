@@ -4,9 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ResponderModel {
-    private final String teamName = "Ceiba";
 
-    public String answer(String question) {
+    private static final String teamName = "Ceiba";
+
+    public static String answer(String question) {
         if ("".equals(question)){
             return teamName;
         }
@@ -21,15 +22,33 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(plusMatcher.group(1)) + Integer.parseInt(plusMatcher.group(2)));
         }
 
-        Matcher largestNumbersMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
-        if(largestNumbersMatcher.matches()){
-           return Integer.parseInt(largestNumbersMatcher.group(1)) >
-                   Integer.parseInt(largestNumbersMatcher.group(2)) ? largestNumbersMatcher.group(1): largestNumbersMatcher.group(2);
+        Matcher largestMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+), (\\d+), (\\d+)").matcher(question);
+        if(largestMatcher.matches()){
+            return String.valueOf(Integer.parseInt(largestMatcher.group(1)) + Integer.parseInt(largestMatcher.group(2)));
+        }
+
+//        Matcher larges1tMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+), (\\d+)").matcher(question);
+//        if(larges1tMatcher.matches()){
+//            if(larges1tMatcher.group(1) > larges1tMatcher.group(2)){
+//
+//            }
+//            return String.valueOf(Integer.parseInt(larges1tMatcher.group(1)) + Integer.parseInt(larges1tMatcher.group(2)));
+//        }
+
+        Matcher larges2tMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
+        if(larges2tMatcher.matches()){
+            return Integer.parseInt(larges2tMatcher.group(1)) >
+                    Integer.parseInt(larges2tMatcher.group(2)) ? larges2tMatcher.group(1): larges2tMatcher.group(2);
+        }
+
+        Matcher multipledNumbersMatcher = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
+
+        if(multipledNumbersMatcher.matches()){
+            return String.valueOf(Integer.parseInt(multipledNumbersMatcher.group(1)) * Integer.parseInt(multipledNumbersMatcher.group(2)));
         }
 
         return teamName;
     }
-
 
 
 }

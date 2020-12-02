@@ -9,8 +9,8 @@ import static org.junit.Assert.assertNotEquals;
 
 public class ResponderModelTest {
 
-
     ResponderModel responderModel;
+
     @Before
     public void setUp() {
         responderModel = new ResponderModel();
@@ -19,21 +19,21 @@ public class ResponderModelTest {
     @Test
     public void answerWithQuestion () {
         String question = "what is the sum of 3 and 2";
-        String reply =  responderModel.answer(question);
+        String reply =  responderModel.answer( question);
         assertEquals("5", reply);
     }
 
     @Test
     public void answerWithNull () {
         String question = "";
-        String reply =  responderModel.answer(question);
+        String reply =  responderModel.answer( question);
         assertEquals("Ceiba", reply);
     }
 
     @Test
     public void answerWithPlus () {
         String question = "what is 3 plus 6";
-        String reply =  responderModel.answer(question);
+        String reply =  responderModel.answer( question);
         assertNotEquals("Ceiba", reply);
         assertEquals("9", reply);
 
@@ -53,5 +53,13 @@ public class ResponderModelTest {
         String reply =  responderModel.answer(question);
         assertNotEquals("8", reply);
         assertEquals("526", reply);
+    }
+
+    @Test
+    public void answerWithMiltipledNumber () {
+        String question = "what is 2 multiplied by 2";
+        String reply =  responderModel.answer(question);
+        assertNotEquals("8", reply);
+        assertEquals("4", reply);
     }
 }
