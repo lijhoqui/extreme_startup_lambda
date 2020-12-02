@@ -73,6 +73,11 @@ public class ResponderModel {
             return "Sean Connery";
         }
 
+
+        Matcher parisMatcher = Pattern.compile(".*which city is the Eiffel tower in").matcher(question);
+        if (parisMatcher.matches()) {
+            return "Paris";
+        }
         return teamName;
     }
 
