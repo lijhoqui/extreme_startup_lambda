@@ -78,4 +78,11 @@ public class ResponderModelTest {
         assertNotEquals("8", reply);
         assertEquals("3", reply);
     }
+
+    @Test
+    public void answerWithAgentNumber () {
+        String question = "who played James Bond in the film Dr No";
+        String reply =  responderModel.answer(question);
+        assertEquals("Sean Connery", reply);
+    }
 }

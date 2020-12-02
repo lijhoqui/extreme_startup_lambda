@@ -70,7 +70,7 @@ public class ResponderModel {
 
         Matcher agentMatcher = Pattern.compile(".*who played James Bond in the film Dr No").matcher(question);
         if (agentMatcher.matches()) {
-            return "007";
+            return "Sean Connery";
         }
 
         return teamName;
