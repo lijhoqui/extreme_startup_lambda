@@ -15,8 +15,15 @@ public class ResponderModel {
         if (sumMatcher.matches()) {
             return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
         }
+
+        Matcher plusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
+        if(plusMatcher.matches()){
+            return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
+        }
         
         return teamName;
     }
+
+
 
 }
