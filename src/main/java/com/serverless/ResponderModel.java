@@ -64,8 +64,13 @@ public class ResponderModel {
         }
 
         Matcher yelLowMatcher = Pattern.compile(".*what colour is a banana").matcher(question);
-        if (sumMatcher.matches()) {
+        if (yelLowMatcher.matches()) {
             return "yellow";
+        }
+
+        Matcher agentMatcher = Pattern.compile(".*who played James Bond in the film Dr No").matcher(question);
+        if (agentMatcher.matches()) {
+            return "007";
         }
 
         return teamName;
