@@ -62,4 +62,12 @@ public class ResponderModelTest {
         assertNotEquals("8", reply);
         assertEquals("4", reply);
     }
+
+    @Test
+    public void answerWithMinusNumber () {
+        String question = "what is 9 minus 14";
+        String reply =  responderModel.answer(question);
+        assertNotEquals("8", reply);
+        assertEquals("-5", reply);
+    }
 }

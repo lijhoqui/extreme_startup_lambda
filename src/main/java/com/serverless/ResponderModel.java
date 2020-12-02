@@ -47,6 +47,12 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(multipledNumbersMatcher.group(1)) * Integer.parseInt(multipledNumbersMatcher.group(2)));
         }
 
+        Matcher menusNumbersMatcher = Pattern.compile(".*what is (\\d+) minus (\\d+)").matcher(question);
+
+        if(menusNumbersMatcher.matches()){
+            return String.valueOf(Integer.parseInt(menusNumbersMatcher.group(1)) - Integer.parseInt(menusNumbersMatcher.group(2)));
+        }
+
         return teamName;
     }
 
