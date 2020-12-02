@@ -18,9 +18,15 @@ public class ResponderModel {
 
         Matcher plusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
         if(plusMatcher.matches()){
-            return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
+            return String.valueOf(Integer.parseInt(plusMatcher.group(1)) + Integer.parseInt(plusMatcher.group(2)));
         }
-        
+
+        Matcher largestNumbersMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
+        if(largestNumbersMatcher.matches()){
+           return Integer.parseInt(largestNumbersMatcher.group(1)) >
+                   Integer.parseInt(largestNumbersMatcher.group(2)) ? largestNumbersMatcher.group(1): largestNumbersMatcher.group(2);
+        }
+
         return teamName;
     }
 

@@ -31,10 +31,27 @@ public class ResponderModelTest {
     }
 
     @Test
+    public void answerWithPlus () {
+        String question = "what is 3 plus 6";
+        String reply =  responderModel.answer(question);
+        assertNotEquals("Ceiba", reply);
+        assertEquals("9", reply);
+
+    }
+
+    @Test
     public void answerWithReplyDiferent () {
         String question = "what is the sum of 3 and 2";
         String reply =  responderModel.answer(question);
         assertNotEquals("8", reply);
         assertEquals("5", reply);
+    }
+
+    @Test
+    public void answerWithlargestNumber () {
+        String question = "which of the following numbers is the largest: 526, 6";
+        String reply =  responderModel.answer(question);
+        assertNotEquals("8", reply);
+        assertEquals("526", reply);
     }
 }
