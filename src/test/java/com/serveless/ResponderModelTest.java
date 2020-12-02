@@ -70,4 +70,12 @@ public class ResponderModelTest {
         assertNotEquals("8", reply);
         assertEquals("-5", reply);
     }
+
+    @Test
+    public void answerWithPrimesNumber () {
+        String question = "which of the following numbers are primes: 3, 2";
+        String reply =  responderModel.answer(question);
+        assertNotEquals("8", reply);
+        assertEquals("3", reply);
+    }
 }
