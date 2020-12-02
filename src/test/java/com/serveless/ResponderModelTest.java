@@ -81,7 +81,7 @@ public class ResponderModelTest {
 
     @Test
     public void answerWithBananaNumber () {
-        String question = "what colour is a banan";
+        String question = "what colour is a banana";
         String reply =  responderModel.answer(question);
         assertEquals("yellow", reply);
     }
