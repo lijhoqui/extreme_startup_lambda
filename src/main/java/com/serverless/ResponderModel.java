@@ -63,6 +63,11 @@ public class ResponderModel {
             }
         }
 
+        Matcher yelLowMatcher = Pattern.compile(".*what colour is a banana").matcher(question);
+        if (sumMatcher.matches()) {
+            return "yellow";
+        }
+
         return teamName;
     }
 
