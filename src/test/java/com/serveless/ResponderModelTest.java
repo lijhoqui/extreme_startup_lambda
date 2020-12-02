@@ -80,6 +80,13 @@ public class ResponderModelTest {
     }
 
     @Test
+    public void answerWithBananaNumber () {
+        String question = "what colour is a banan";
+        String reply =  responderModel.answer(question);
+        assertEquals("yellow", reply);
+    }
+
+    @Test
     public void answerWithAgentNumber () {
         String question = "who played James Bond in the film Dr No";
         String reply =  responderModel.answer(question);
